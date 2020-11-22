@@ -17,4 +17,4 @@ by running:
 docker-compose run --rm backend python manage.py import_csv files.csv
 ```
 
-The csv must not have a header.
+You can find a sample file in `data/`.

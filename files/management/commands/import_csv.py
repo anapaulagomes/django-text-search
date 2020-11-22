@@ -15,5 +15,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         with open(options["file"], newline="") as csv_file:
             reader = csv.reader(csv_file, delimiter=",")
+            next(reader)
             for row in reader:
                 File.objects.create(**{"url": row[0], "content": row[1]})
