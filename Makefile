@@ -15,3 +15,6 @@ migrate:
 
 run:
 	docker-compose up -d
+
+shell:
+	docker-compose run --rm backend python manage.py shell
