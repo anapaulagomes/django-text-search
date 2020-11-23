@@ -17,4 +17,21 @@ by running:
 docker-compose run --rm backend python manage.py import_csv files.csv
 ```
 
-You can find a sample file in `data/`.
+You can find a sample file in `data/`. The content of this dataset is in Brazilian portuguese.
+
+## About the data
+
+* 4740 files
+* two columns: `url` and `content`
+* about `content`: smallest have X characters (XX words) and biggest have Y characters (YY words)
+
+## Testing
+
+
+```
+docker-compose run --rm backend python manage.py shell_plus --print-sql
+
+File.objects.filter(content__search="merenda")
+
+File.objects.filter(content_search_vector=SearchQuery(term, config='portuguese'))
+```
